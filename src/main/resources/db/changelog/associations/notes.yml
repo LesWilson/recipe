@@ -1,0 +1,22 @@
+#
+# Generate the foreign keys for the recipe table
+#
+databaseChangeLog:
+
+  - changeSet:
+      id: 20190811-table-notes-add-recipe-foreign-key
+      author: leswilson
+      changes:
+        - preConditions:
+            - not:
+                - foreignKeyConstraintExists:
+                    foreignKeyName: fk_notes_recipe
+
+        - addForeignKeyConstraint:
+            baseColumnNames: recipe_id
+            baseTableName: notes
+            constraintName: fk_notes_recipe
+            onDelete: CASCADE
+            onUpdate: RESTRICT
+            referencedColumnNames: id
+            referencedTableName: recipe
