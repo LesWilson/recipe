@@ -1,0 +1,36 @@
+#
+# Generate the foreign keys for the recipe table
+#
+databaseChangeLog:
+
+  - changeSet:
+      id: 20190813-table-recipe-category-add-recipe-foreign-key
+      author: leswilson
+      changes:
+        - preConditions:
+            - not:
+                - foreignKeyConstraintExists:
+                    foreignKeyName: fk_recipe_category_recipe
+
+        - addForeignKeyConstraint:
+            baseColumnNames: recipe_id
+            baseTableName: recipe_category
+            constraintName: fk_recipe_category_recipe
+            referencedColumnNames: id
+            referencedTableName: recipe
+
+  - changeSet:
+      id: 20190813-table-recipe-category-add-category-foreign-key
+      author: leswilson
+      changes:
+        - preConditions:
+            - not:
+                - foreignKeyConstraintExists:
+                    foreignKeyName: fk_recipe_category_category
+
+        - addForeignKeyConstraint:
+            baseColumnNames: category_id
+            baseTableName: recipe_category
+            constraintName: fk_recipe_category_category
+            referencedColumnNames: id
+            referencedTableName: category

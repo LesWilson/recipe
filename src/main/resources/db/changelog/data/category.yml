@@ -1,0 +1,64 @@
+#
+# Generate the table used to store recipe data
+#
+databaseChangeLog:
+
+  - changeSet:
+      id: 20190813-table-category-data
+      author: leswilson
+      changes:
+        - preConditions:
+            - sqlCheck:
+                - expectedResult: 0
+                - sql: SELECT COUNT(*) FROM category
+
+        - insert:
+            tableName: category
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: description
+                  value: American
+
+        - insert:
+            tableName: category
+            columns:
+              - column:
+                  name: id
+                  value: 2
+              - column:
+                  name: description
+                  value: Italian
+
+        - insert:
+            tableName: category
+            columns:
+              - column:
+                  name: id
+                  value: 3
+              - column:
+                  name: description
+                  value: Mexican
+
+        - insert:
+            tableName: category
+            columns:
+              - column:
+                  name: id
+                  value: 4
+              - column:
+                  name: description
+                  value: Indian
+
+        # Update next ids table
+        - insert:
+            tableName: next_ids
+            columns:
+              - column:
+                  name: next_id
+                  value: 5
+              - column:
+                  name: table_name
+                  value: category

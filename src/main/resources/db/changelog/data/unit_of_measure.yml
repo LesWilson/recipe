@@ -1,0 +1,74 @@
+#
+# Generate the table used to store recipe data
+#
+databaseChangeLog:
+
+  - changeSet:
+      id: 20190813-table-unit-of-measure-data
+      author: leswilson
+      changes:
+        - preConditions:
+            - sqlCheck:
+                - expectedResult: 0
+                - sql: SELECT COUNT(*) FROM unit_of_measure
+
+        - insert:
+            tableName: unit_of_measure
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: description
+                  value: Teaspoon
+
+        - insert:
+            tableName: unit_of_measure
+            columns:
+              - column:
+                  name: id
+                  value: 2
+              - column:
+                  name: description
+                  value: Tablespoon
+
+        - insert:
+            tableName: unit_of_measure
+            columns:
+              - column:
+                  name: id
+                  value: 3
+              - column:
+                  name: description
+                  value: Cup
+
+        - insert:
+            tableName: unit_of_measure
+            columns:
+              - column:
+                  name: id
+                  value: 4
+              - column:
+                  name: description
+                  value: Pinch
+
+        - insert:
+            tableName: unit_of_measure
+            columns:
+              - column:
+                  name: id
+                  value: 5
+              - column:
+                  name: description
+                  value: Ounce
+
+        # Update next ids table
+        - insert:
+            tableName: next_ids
+            columns:
+              - column:
+                  name: next_id
+                  value: 6
+              - column:
+                  name: table_name
+                  value: unit_of_measure

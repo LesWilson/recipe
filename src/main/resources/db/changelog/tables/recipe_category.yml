@@ -1,0 +1,39 @@
+#
+# Generate the table used to store recipe data
+#
+databaseChangeLog:
+
+  - changeSet:
+      id: 20190813-table-recipe-category-create
+      author: leswilson
+      changes:
+        - preConditions:
+            - not:
+                - tableExists:
+                    tableName: recipe_category
+        - createTable:
+            tableName: recipe_category
+            columns:
+              - column:
+                  name: recipe_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: category_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 20190813-table-recipe-category-add-primary-key
+      author: leswilson
+      changes:
+        - preConditions:
+            - not:
+                - primaryKeyExists:
+                    tableName: recipe_category
+        - addPrimaryKey:
+            columnNames: recipe_id, category_id
+            constraintName: pk_recipe_category
+            tableName: recipe_category

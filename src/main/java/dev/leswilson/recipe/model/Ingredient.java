@@ -3,6 +3,7 @@ package dev.leswilson.recipe.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Data
 @NoArgsConstructor
@@ -10,19 +11,21 @@ import javax.persistence.*;
 @Builder
 @Entity
 @EqualsAndHashCode(callSuper = true)
-@Table(name = "notes")
+@Table(name = "ingredient")
 @TableGenerator(
         name="idGen",
         table="next_ids",
         pkColumnName = "table_name",
         valueColumnName = "next_id",
-        pkColumnValue="notes",
+        pkColumnValue="ingredient",
         allocationSize=5,
         initialValue = 1
 )
-public class Notes extends BaseEntity {
-    @OneToOne
+public class Ingredient extends BaseEntity {
+    @ManyToOne
     private Recipe recipe;
-    @Lob
     private String description;
+    private BigDecimal amount;
+    @OneToOne
+    private UnitOfMeasure unitOfMeasure;
 }

@@ -4,15 +4,15 @@
 databaseChangeLog:
 
   - changeSet:
-      id: 20190809-table-recipe-create
+      id: 20190813-table-unit-of-measure-create
       author: leswilson
       changes:
         - preConditions:
             - not:
                 - tableExists:
-                    tableName: recipe
+                    tableName: unit_of_measure
         - createTable:
-            tableName: recipe
+            tableName: unit_of_measure
             columns:
               - column:
                   name: id
@@ -21,36 +21,9 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: description
-                  type: varchar(250)
+                  type: varchar(255)
                   constraints:
                     nullable: false
-              - column:
-                  name: prep_time
-                  type: int
-              - column:
-                  name: cook_time
-                  type: int
-              - column:
-                  name: servings
-                  type: int
-              - column:
-                  name: source
-                  type: varchar(500)
-              - column:
-                  name: url
-                  type: varchar(500)
-              - column:
-                  name: directions
-                  type: varchar(3000)
-              - column:
-                  name: difficulty
-                  type: varchar(30)
-              - column:
-                  name: image
-                  type: blob
-              - column:
-                  name: notes_id
-                  type: bigint
               - column:
                   name: created_at
                   type: datetime
@@ -65,14 +38,14 @@ databaseChangeLog:
                     nullable: false
 
   - changeSet:
-      id: 20190809-table-recipe-add-primary-key
+      id: 20190813-table-unit-of-measure-add-primary-key
       author: leswilson
       changes:
         - preConditions:
             - not:
                 - primaryKeyExists:
-                    tableName: recipe
+                    tableName: unit_of_measure
         - addPrimaryKey:
             columnNames: id
-            constraintName: pk_recipe
-            tableName: recipe
+            constraintName: pk_unit_of_measure
+            tableName: unit_of_measure

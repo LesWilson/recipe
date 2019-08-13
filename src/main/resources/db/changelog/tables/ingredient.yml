@@ -4,15 +4,15 @@
 databaseChangeLog:
 
   - changeSet:
-      id: 20190809-table-recipe-create
+      id: 20190813-table-ingredient-create
       author: leswilson
       changes:
         - preConditions:
             - not:
                 - tableExists:
-                    tableName: recipe
+                    tableName: ingredient
         - createTable:
-            tableName: recipe
+            tableName: ingredient
             columns:
               - column:
                   name: id
@@ -20,36 +20,22 @@ databaseChangeLog:
                   constraints:
                     nullable: false
               - column:
-                  name: description
-                  type: varchar(250)
+                  name: recipe_id
+                  type: bigint
                   constraints:
                     nullable: false
               - column:
-                  name: prep_time
-                  type: int
+                  name: description
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
               - column:
-                  name: cook_time
-                  type: int
+                  name: amount
+                  type: decimal(10,2)
+                  constraints:
+                    nullable: false
               - column:
-                  name: servings
-                  type: int
-              - column:
-                  name: source
-                  type: varchar(500)
-              - column:
-                  name: url
-                  type: varchar(500)
-              - column:
-                  name: directions
-                  type: varchar(3000)
-              - column:
-                  name: difficulty
-                  type: varchar(30)
-              - column:
-                  name: image
-                  type: blob
-              - column:
-                  name: notes_id
+                  name: unit_of_measure_id
                   type: bigint
               - column:
                   name: created_at
@@ -65,14 +51,14 @@ databaseChangeLog:
                     nullable: false
 
   - changeSet:
-      id: 20190809-table-recipe-add-primary-key
+      id: 20190813-table-ingredient-add-primary-key
       author: leswilson
       changes:
         - preConditions:
             - not:
                 - primaryKeyExists:
-                    tableName: recipe
+                    tableName: ingredient
         - addPrimaryKey:
             columnNames: id
-            constraintName: pk_recipe
-            tableName: recipe
+            constraintName: pk_ingredient
+            tableName: ingredient

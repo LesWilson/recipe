@@ -3,6 +3,7 @@ package dev.leswilson.recipe.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -10,19 +11,19 @@ import javax.persistence.*;
 @Builder
 @Entity
 @EqualsAndHashCode(callSuper = true)
-@Table(name = "notes")
+@Table(name = "category")
 @TableGenerator(
         name="idGen",
         table="next_ids",
         pkColumnName = "table_name",
         valueColumnName = "next_id",
-        pkColumnValue="notes",
+        pkColumnValue="category",
         allocationSize=5,
         initialValue = 1
 )
-public class Notes extends BaseEntity {
-    @OneToOne
-    private Recipe recipe;
-    @Lob
+public class Category extends BaseEntity {
+
+    @ManyToMany(mappedBy = "categories")
+    private Set<Recipe> recipes;
     private String description;
 }

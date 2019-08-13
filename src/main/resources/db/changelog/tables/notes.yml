@@ -4,15 +4,15 @@
 databaseChangeLog:
 
   - changeSet:
-      id: 20190809-table-recipe-create
+      id: 20190809-table-notes-create
       author: leswilson
       changes:
         - preConditions:
             - not:
                 - tableExists:
-                    tableName: recipe
+                    tableName: notes
         - createTable:
-            tableName: recipe
+            tableName: notes
             columns:
               - column:
                   name: id
@@ -20,37 +20,15 @@ databaseChangeLog:
                   constraints:
                     nullable: false
               - column:
-                  name: description
-                  type: varchar(250)
+                  name: recipe_id
+                  type: bigint
                   constraints:
                     nullable: false
               - column:
-                  name: prep_time
-                  type: int
-              - column:
-                  name: cook_time
-                  type: int
-              - column:
-                  name: servings
-                  type: int
-              - column:
-                  name: source
-                  type: varchar(500)
-              - column:
-                  name: url
-                  type: varchar(500)
-              - column:
-                  name: directions
-                  type: varchar(3000)
-              - column:
-                  name: difficulty
-                  type: varchar(30)
-              - column:
-                  name: image
-                  type: blob
-              - column:
-                  name: notes_id
-                  type: bigint
+                  name: description
+                  type: clob
+                  constraints:
+                    nullable: false
               - column:
                   name: created_at
                   type: datetime
@@ -65,14 +43,14 @@ databaseChangeLog:
                     nullable: false
 
   - changeSet:
-      id: 20190809-table-recipe-add-primary-key
+      id: 20190809-table-notes-add-primary-key
       author: leswilson
       changes:
         - preConditions:
             - not:
                 - primaryKeyExists:
-                    tableName: recipe
+                    tableName: notes
         - addPrimaryKey:
             columnNames: id
-            constraintName: pk_recipe
-            tableName: recipe
+            constraintName: pk_note
+            tableName: notes
