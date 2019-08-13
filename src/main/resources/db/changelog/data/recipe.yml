@@ -1,0 +1,98 @@
+#
+# Generate the table used to store recipe data
+#
+databaseChangeLog:
+
+  - changeSet:
+      id: 20190813-table-recipe-data
+      author: leswilson
+      changes:
+        - preConditions:
+            - sqlCheck:
+                - expectedResult: 0
+                - sql: SELECT COUNT(*) FROM recipe
+
+        - insert:
+            tableName: recipe
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: description
+                  value: Guacamole
+              - column:
+                  name: prep_time
+                  value: 20
+              - column:
+                  name: cook_time
+                  value: 2
+              - column:
+                  name: servings
+                  value: 8
+              - column:
+                  name: source
+                  value: no clue
+              - column:
+                  name: url
+                  value: www.simplyrecipes.com/recipes/perfect_guacamole
+              - column:
+                  name: directions
+                  value: do a bit of cutting, chopping and mashing
+              - column:
+                  name: difficulty
+                  value: EASY
+              - column:
+                  name: image
+                  value: null
+              - column:
+                  name: notes_id
+                  value: null
+
+        - insert:
+            tableName: recipe
+            columns:
+              - column:
+                  name: id
+                  value: 2
+              - column:
+                  name: description
+                  value: Spicy Grilled Chicken Tacos
+              - column:
+                  name: prep_time
+                  value: 30
+              - column:
+                  name: cook_time
+                  value: 15
+              - column:
+                  name: servings
+                  value: 4
+              - column:
+                  name: source
+                  value: no clue again
+              - column:
+                  name: url
+                  value: www.simplyrecipes.com/recipes/spicy_grilled_chicken_tacos
+              - column:
+                  name: directions
+                  value: do a bit of cutting, chopping and mashing
+              - column:
+                  name: difficulty
+                  value: MODERATE
+              - column:
+                  name: image
+                  value: null
+              - column:
+                  name: notes_id
+                  value: null
+
+        # Update next ids table
+        - insert:
+            tableName: next_ids
+            columns:
+              - column:
+                  name: next_id
+                  value: 3
+              - column:
+                  name: table_name
+                  value: recipe

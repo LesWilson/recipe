@@ -31,9 +31,7 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: amount
-                  type: decimal(10,2)
-                  constraints:
-                    nullable: false
+                  type: varchar(100)
               - column:
                   name: unit_of_measure_id
                   type: bigint

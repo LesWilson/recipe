@@ -1,0 +1,539 @@
+#
+# Generate the table used to store recipe data
+#
+databaseChangeLog:
+
+  - changeSet:
+      id: 20190813-table-ingredient-data
+      author: leswilson
+      changes:
+        - preConditions:
+            - sqlCheck:
+                - expectedResult: 0
+                - sql: SELECT COUNT(*) FROM ingredient
+
+        - insert:
+            tableName: ingredient
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: recipe_id
+                  value: 1
+              - column:
+                  name: description
+                  value: ripe avocados
+              - column:
+                  name: amount
+                  value: 2
+              - column:
+                  name: unit_of_measure_id
+                  value: null
+
+        - insert:
+            tableName: ingredient
+            columns:
+              - column:
+                  name: id
+                  value: 2
+              - column:
+                  name: recipe_id
+                  value: 1
+              - column:
+                  name: description
+                  value: salt
+              - column:
+                  name: amount
+                  value: 1/2
+              - column:
+                  name: unit_of_measure_id
+                  value: 1   # teaspoon
+
+        - insert:
+            tableName: ingredient
+            columns:
+              - column:
+                  name: id
+                  value: 3
+              - column:
+                  name: recipe_id
+                  value: 1
+              - column:
+                  name: description
+                  value: fresh lime juice or lemon juice
+              - column:
+                  name: amount
+                  value: 1
+              - column:
+                  name: unit_of_measure_id
+                  value: 2   # tablespoon
+
+        - insert:
+            tableName: ingredient
+            columns:
+              - column:
+                  name: id
+                  value: 4
+              - column:
+                  name: recipe_id
+                  value: 1
+              - column:
+                  name: description
+                  value: minced red onion or thinly sliced green onions
+              - column:
+                  name: amount
+                  value: 1/4
+              - column:
+                  name: unit_of_measure_id
+                  value: 3
+
+        - insert:
+            tableName: ingredient
+            columns:
+              - column:
+                  name: id
+                  value: 5
+              - column:
+                  name: recipe_id
+                  value: 1
+              - column:
+                  name: description
+                  value: serrano chillies, stems and seeds removed, minced
+              - column:
+                  name: amount
+                  value: 1-2
+              - column:
+                  name: unit_of_measure_id
+                  value: null
+
+        - insert:
+            tableName: ingredient
+            columns:
+              - column:
+                  name: id
+                  value: 6
+              - column:
+                  name: recipe_id
+                  value: 1
+              - column:
+                  name: description
+                  value: cilantro (leaves and tender stems), finely chopped
+              - column:
+                  name: amount
+                  value: 2
+              - column:
+                  name: unit_of_measure_id
+                  value: 2
+
+        - insert:
+            tableName: ingredient
+            columns:
+              - column:
+                  name: id
+                  value: 7
+              - column:
+                  name: recipe_id
+                  value: 1
+              - column:
+                  name: description
+                  value: freshly grated black pepper
+              - column:
+                  name: amount
+                  value: A
+              - column:
+                  name: unit_of_measure_id
+                  value: 6
+
+        - insert:
+            tableName: ingredient
+            columns:
+              - column:
+                  name: id
+                  value: 8
+              - column:
+                  name: recipe_id
+                  value: 1
+              - column:
+                  name: description
+                  value: ripe tomato, seeds and pulp removed, chopped
+              - column:
+                  name: amount
+                  value: 1/2
+              - column:
+                  name: unit_of_measure_id
+                  value: null
+
+        # tacos
+        - insert:
+            tableName: ingredient
+            columns:
+              - column:
+                  name: id
+                  value: 9
+              - column:
+                  name: recipe_id
+                  value: 2
+              - column:
+                  name: description
+                  value: ancho chilli powder
+              - column:
+                  name: amount
+                  value: 2
+              - column:
+                  name: unit_of_measure_id
+                  value: 2
+
+        - insert:
+            tableName: ingredient
+            columns:
+              - column:
+                  name: id
+                  value: 10
+              - column:
+                  name: recipe_id
+                  value: 2
+              - column:
+                  name: description
+                  value: dried oragano
+              - column:
+                  name: amount
+                  value: 1
+              - column:
+                  name: unit_of_measure_id
+                  value: 1
+
+        - insert:
+            tableName: ingredient
+            columns:
+              - column:
+                  name: id
+                  value: 11
+              - column:
+                  name: recipe_id
+                  value: 2
+              - column:
+                  name: description
+                  value: dried cumin
+              - column:
+                  name: amount
+                  value: 1
+              - column:
+                  name: unit_of_measure_id
+                  value: 1
+
+        - insert:
+            tableName: ingredient
+            columns:
+              - column:
+                  name: id
+                  value: 12
+              - column:
+                  name: recipe_id
+                  value: 2
+              - column:
+                  name: description
+                  value: sugar
+              - column:
+                  name: amount
+                  value: 1
+              - column:
+                  name: unit_of_measure_id
+                  value: 2
+
+        - insert:
+            tableName: ingredient
+            columns:
+              - column:
+                  name: id
+                  value: 13
+              - column:
+                  name: recipe_id
+                  value: 2
+              - column:
+                  name: description
+                  value: salt
+              - column:
+                  name: amount
+                  value: 1/2
+              - column:
+                  name: unit_of_measure_id
+                  value: 1
+
+        - insert:
+            tableName: ingredient
+            columns:
+              - column:
+                  name: id
+                  value: 14
+              - column:
+                  name: recipe_id
+                  value: 2
+              - column:
+                  name: description
+                  value: clove garlic, finely chopped
+              - column:
+                  name: amount
+                  value: 1
+              - column:
+                  name: unit_of_measure_id
+                  value: null
+
+        - insert:
+            tableName: ingredient
+            columns:
+              - column:
+                  name: id
+                  value: 15
+              - column:
+                  name: recipe_id
+                  value: 2
+              - column:
+                  name: description
+                  value: finely grated orange zest
+              - column:
+                  name: amount
+                  value: 1
+              - column:
+                  name: unit_of_measure_id
+                  value: 2
+
+        - insert:
+            tableName: ingredient
+            columns:
+              - column:
+                  name: id
+                  value: 16
+              - column:
+                  name: recipe_id
+                  value: 2
+              - column:
+                  name: description
+                  value: freshly squeezed orange juice
+              - column:
+                  name: amount
+                  value: 3
+              - column:
+                  name: unit_of_measure_id
+                  value: 2
+
+        - insert:
+            tableName: ingredient
+            columns:
+              - column:
+                  name: id
+                  value: 17
+              - column:
+                  name: recipe_id
+                  value: 2
+              - column:
+                  name: description
+                  value: olive oil
+              - column:
+                  name: amount
+                  value: 2
+              - column:
+                  name: unit_of_measure_id
+                  value: 2
+
+        - insert:
+            tableName: ingredient
+            columns:
+              - column:
+                  name: id
+                  value: 18
+              - column:
+                  name: recipe_id
+                  value: 2
+              - column:
+                  name: description
+                  value: skinless, boneless chicken thighs
+              - column:
+                  name: amount
+                  value: 4 to 6 (1 1/4 pounds)
+              - column:
+                  name: unit_of_measure_id
+                  value: null
+
+        - insert:
+            tableName: ingredient
+            columns:
+              - column:
+                  name: id
+                  value: 19
+              - column:
+                  name: recipe_id
+                  value: 2
+              - column:
+                  name: description
+                  value: small corn tortillas
+              - column:
+                  name: amount
+                  value: 8
+              - column:
+                  name: unit_of_measure_id
+                  value: null
+
+        - insert:
+            tableName: ingredient
+            columns:
+              - column:
+                  name: id
+                  value: 20
+              - column:
+                  name: recipe_id
+                  value: 2
+              - column:
+                  name: description
+                  value: packed baby arugula
+              - column:
+                  name: amount
+                  value: 3
+              - column:
+                  name: unit_of_measure_id
+                  value: 3
+
+        - insert:
+            tableName: ingredient
+            columns:
+              - column:
+                  name: id
+                  value: 21
+              - column:
+                  name: recipe_id
+                  value: 2
+              - column:
+                  name: description
+                  value: medium ripe avocados, sliced
+              - column:
+                  name: amount
+                  value: 2
+              - column:
+                  name: unit_of_measure_id
+                  value: null
+
+        - insert:
+            tableName: ingredient
+            columns:
+              - column:
+                  name: id
+                  value: 22
+              - column:
+                  name: recipe_id
+                  value: 2
+              - column:
+                  name: description
+                  value: radishes, thinly sliced
+              - column:
+                  name: amount
+                  value: 4
+              - column:
+                  name: unit_of_measure_id
+                  value: null
+
+        - insert:
+            tableName: ingredient
+            columns:
+              - column:
+                  name: id
+                  value: 23
+              - column:
+                  name: recipe_id
+                  value: 2
+              - column:
+                  name: description
+                  value: cherry tomatoes, halved
+              - column:
+                  name: amount
+                  value: 1/2
+              - column:
+                  name: unit_of_measure_id
+                  value: 7
+
+        - insert:
+            tableName: ingredient
+            columns:
+              - column:
+                  name: id
+                  value: 24
+              - column:
+                  name: recipe_id
+                  value: 2
+              - column:
+                  name: description
+                  value: red onion, thinly sliced
+              - column:
+                  name: amount
+                  value: 1/4
+              - column:
+                  name: unit_of_measure_id
+                  value: null
+
+        - insert:
+            tableName: ingredient
+            columns:
+              - column:
+                  name: id
+                  value: 25
+              - column:
+                  name: recipe_id
+                  value: 2
+              - column:
+                  name: description
+                  value: roughly chopped cilantro
+              - column:
+                  name: amount
+                  value: null
+              - column:
+                  name: unit_of_measure_id
+                  value: null
+
+        - insert:
+            tableName: ingredient
+            columns:
+              - column:
+                  name: id
+                  value: 26
+              - column:
+                  name: recipe_id
+                  value: 2
+              - column:
+                  name: description
+                  value: sour cream thinned with 1/4 cup milk
+              - column:
+                  name: amount
+                  value: 1/2
+              - column:
+                  name: unit_of_measure_id
+                  value: 3
+
+        - insert:
+            tableName: ingredient
+            columns:
+              - column:
+                  name: id
+                  value: 27
+              - column:
+                  name: recipe_id
+                  value: 2
+              - column:
+                  name: description
+                  value: lime, cut into wedges
+              - column:
+                  name: amount
+                  value: 1
+              - column:
+                  name: unit_of_measure_id
+                  value: null
+
+
+        # Update next ids table
+        - insert:
+            tableName: next_ids
+            columns:
+              - column:
+                  name: next_id
+                  value: 28
+              - column:
+                  name: table_name
+                  value: ingredient

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'vets')}">
+  <head>
+    <meta charset="UTF-8">
+    <title>Pet Clinic - List of Vets</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <style>
+      #col1 {width:150px; cursor: pointer}
+      #col2 {width:200px; cursor: pointer}
+      #col3 {width:200px; cursor: pointer}
+    </style>
+  </head>
+  <body>
+    <h2 th:text="'Welcome to the Recipe List'">Welcome to the Recipe List</h2>
+
+    <table class="table table-striped" id="recipe-list">
+      <thead>
+      <tr>
+        <th id="col1" th:text="Id">Id</th>
+        <th id="col2" th:text="Name">Name</th>
+        <th id="col3" th:text="Url">Url</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="recipe : ${recipes}"
+          style="cursor: pointer"
+          th:data-thing="${recipe.id}">
+        <td th:text="${recipe.id}">1</td>
+        <td th:text="${recipe.description}">A really tasty recipe</td>
+        <td th:text="${recipe.url}">www.whatever.com</td>
+      </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

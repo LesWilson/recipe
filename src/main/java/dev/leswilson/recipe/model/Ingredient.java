@@ -3,7 +3,6 @@ package dev.leswilson.recipe.model;
 import lombok.*;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 
 @Data
 @NoArgsConstructor
@@ -25,7 +24,7 @@ public class Ingredient extends BaseEntity {
     @ManyToOne
     private Recipe recipe;
     private String description;
-    private BigDecimal amount;
+    private String amount;
     @OneToOne
     private UnitOfMeasure unitOfMeasure;
 }

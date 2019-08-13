@@ -41,7 +41,7 @@ databaseChangeLog:
                   type: varchar(500)
               - column:
                   name: directions
-                  type: varchar(3000)
+                  type: clob
               - column:
                   name: difficulty
                   type: varchar(30)

@@ -33,4 +33,8 @@ databaseChangeLog:
       file: db/changelog/data/unit_of_measure.yml
   - include:
       file: db/changelog/data/category.yml
+  - include:
+      file: db/changelog/data/recipe.yml
+  - include:
+      file: db/changelog/data/ingredient.yml
 
