@@ -7,4 +7,5 @@ import java.util.Optional;
 public interface RecipeService {
     Iterable<Recipe> list();
     Optional<Recipe> getById(Long id);
+    Recipe save(Recipe recipe);
 }

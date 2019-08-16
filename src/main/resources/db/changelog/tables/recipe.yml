@@ -58,11 +58,17 @@ databaseChangeLog:
                   constraints:
                     nullable: false
               - column:
+                  name: created_by
+                  type: varchar(200)
+              - column:
                   name: updated_at
                   type: datetime
                   defaultValueComputed: current_datetime
                   constraints:
                     nullable: false
+              - column:
+                  name: updated_by
+                  type: varchar(200)
 
   - changeSet:
       id: 20190809-table-recipe-add-primary-key

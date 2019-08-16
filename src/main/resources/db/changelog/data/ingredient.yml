@@ -29,7 +29,7 @@ databaseChangeLog:
                   value: 2
               - column:
                   name: unit_of_measure_id
-                  value: null
+                  value: 8
 
         - insert:
             tableName: ingredient
@@ -105,7 +105,7 @@ databaseChangeLog:
                   value: 1-2
               - column:
                   name: unit_of_measure_id
-                  value: null
+                  value: 8
 
         - insert:
             tableName: ingredient
@@ -162,7 +162,7 @@ databaseChangeLog:
                   value: 1/2
               - column:
                   name: unit_of_measure_id
-                  value: null
+                  value: 8
 
         # tacos
         - insert:
@@ -277,7 +277,7 @@ databaseChangeLog:
                   value: 1
               - column:
                   name: unit_of_measure_id
-                  value: null
+                  value: 8
 
         - insert:
             tableName: ingredient
@@ -353,7 +353,7 @@ databaseChangeLog:
                   value: 4 to 6 (1 1/4 pounds)
               - column:
                   name: unit_of_measure_id
-                  value: null
+                  value: 8
 
         - insert:
             tableName: ingredient
@@ -372,7 +372,7 @@ databaseChangeLog:
                   value: 8
               - column:
                   name: unit_of_measure_id
-                  value: null
+                  value: 8
 
         - insert:
             tableName: ingredient
@@ -410,7 +410,7 @@ databaseChangeLog:
                   value: 2
               - column:
                   name: unit_of_measure_id
-                  value: null
+                  value: 8
 
         - insert:
             tableName: ingredient
@@ -429,7 +429,7 @@ databaseChangeLog:
                   value: 4
               - column:
                   name: unit_of_measure_id
-                  value: null
+                  value: 8
 
         - insert:
             tableName: ingredient
@@ -467,7 +467,7 @@ databaseChangeLog:
                   value: 1/4
               - column:
                   name: unit_of_measure_id
-                  value: null
+                  value: 8
 
         - insert:
             tableName: ingredient
@@ -486,7 +486,7 @@ databaseChangeLog:
                   value: null
               - column:
                   name: unit_of_measure_id
-                  value: null
+                  value: 8
 
         - insert:
             tableName: ingredient
@@ -524,7 +524,7 @@ databaseChangeLog:
                   value: 1
               - column:
                   name: unit_of_measure_id
-                  value: null
+                  value: 8
 
 
         # Update next ids table

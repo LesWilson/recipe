@@ -19,6 +19,7 @@ public class RecipeController {
     @GetMapping(value = {"/list", ""})
     public String recipeList(Model model) {
         model.addAttribute("recipes", recipeService.list());
+
         return "recipes/list";
     }
 }

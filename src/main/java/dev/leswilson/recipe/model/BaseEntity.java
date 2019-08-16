@@ -2,7 +2,9 @@ package dev.leswilson.recipe.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
@@ -23,13 +25,17 @@ public class BaseEntity implements Serializable {
     }
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "created_at", nullable = false, updatable = false)
-    @CreatedDate
+    @Column(nullable = false, updatable = false)
+    @CreatedDate   // can also use @CreationTimestamp
     private Date createdAt;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "updated_at", nullable = false)
-    @LastModifiedDate
+    @Column(nullable = false)
+    @LastModifiedDate   // can also use @UpdateTimestamp
     private Date updatedAt;
 
+    @CreatedBy
+    private String createdBy;
+    @LastModifiedBy
+    private String updatedBy;
 }

@@ -37,4 +37,8 @@ databaseChangeLog:
       file: db/changelog/data/recipe.yml
   - include:
       file: db/changelog/data/ingredient.yml
+  - include:
+      file: db/changelog/data/notes.yml
+  - include:
+      file: db/changelog/data/recipe_category.yml
 

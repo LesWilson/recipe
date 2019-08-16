@@ -1,0 +1,33 @@
+#
+# Generate the table used to store recipe data
+#
+databaseChangeLog:
+
+  - changeSet:
+      id: 20190814-table-recipe-category-data
+      author: leswilson
+      changes:
+        - preConditions:
+            - sqlCheck:
+                - expectedResult: 0
+                - sql: SELECT COUNT(*) FROM recipe_category
+        - insert:
+            tableName: recipe_category
+            columns:
+              - column:
+                  name: recipe_id
+                  value: 1
+              - column:
+                  name: category_id
+                  value: 1
+
+        - insert:
+            tableName: recipe_category
+            columns:
+              - column:
+                  name: recipe_id
+                  value: 2
+              - column:
+                  name: category_id
+                  value: 2
+

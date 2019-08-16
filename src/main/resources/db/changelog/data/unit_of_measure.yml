@@ -82,13 +82,23 @@ databaseChangeLog:
                   name: description
                   value: Pint
 
+        - insert:
+            tableName: unit_of_measure
+            columns:
+              - column:
+                  name: id
+                  value: 8
+              - column:
+                  name: description
+                  value: " "
+
         # Update next ids table
         - insert:
             tableName: next_ids
             columns:
               - column:
                   name: next_id
-                  value: 8
+                  value: 9
               - column:
                   name: table_name
                   value: unit_of_measure

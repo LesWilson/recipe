@@ -1,0 +1,49 @@
+#
+# Generate the table used to store recipe data
+#
+databaseChangeLog:
+
+  - changeSet:
+      id: 20190814-table-notes-data
+      author: leswilson
+      changes:
+        - preConditions:
+            - sqlCheck:
+                - expectedResult: 0
+                - sql: SELECT COUNT(*) FROM notes
+        - insert:
+            tableName: notes
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: recipe_id
+                  value: 1
+              - column:
+                  name: description
+                  value: This is the note for the first recipe
+
+        - insert:
+            tableName: notes
+            columns:
+              - column:
+                  name: id
+                  value: 2
+              - column:
+                  name: recipe_id
+                  value: 2
+              - column:
+                  name: description
+                  value: This is the note for the second recipe
+
+        # Update next ids table
+        - insert:
+            tableName: next_ids
+            columns:
+              - column:
+                  name: next_id
+                  value: 3
+              - column:
+                  name: table_name
+                  value: notes
